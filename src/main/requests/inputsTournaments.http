@@ -1,0 +1,42 @@
+GET http://localhost:8080/api/tournaments
+
+###200
+POST http://localhost:8080/api/tournaments
+Content-Type: application/json
+
+{
+  "organizer":"ESL",
+  "city":"Lhota",
+  "year":"2015"
+}
+
+###201
+PUT http://localhost:8080/api/tournaments/2
+Content-Type: application/json
+
+{
+  "organizer":"ESL",
+  "city":"Praha",
+  "year":"2017"
+}
+
+###204
+PUT http://localhost:8080/api/tournaments/2
+Content-Type: application/json
+
+{
+  "organizer":"CD",
+  "city":"Praha",
+  "year":"2019"
+}
+
+###204
+GET http://localhost:8080/api/tournaments/2
+
+###200
+DELETE http://localhost:8080/api/tournaments/1
+
+###200
+DELETE http://localhost:8080/api/tournaments/1
+
+###200

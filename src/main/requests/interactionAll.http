@@ -1,0 +1,77 @@
+POST http://localhost:8080/api/tournaments
+Content-Type: application/json
+
+{
+  "organizer":"ESL",
+  "city":"Lhota",
+  "year":"2015"
+}
+
+###201
+PUT http://localhost:8080/api/tournaments/2
+Content-Type: application/json
+
+{
+  "organizer":"ESL",
+  "city":"Praha",
+  "year":"2017"
+}
+
+###204
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"SK"
+}
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Potato",
+  "firstName":"Pepaa",
+  "lastName":"Novakova"
+}
+
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Brambora",
+  "firstName":"Pepa",
+  "lastName":"Novak"
+}
+###201
+
+GET http://localhost:8080/api/rosters
+
+###200
+GET http://localhost:8080/api/players
+
+###200
+GET http://localhost:8080/api/tournaments
+
+###200
+PUT http://localhost:8080/api/rosters/3/players/4
+
+###200
+PUT http://localhost:8080/api/rosters/3/players/5
+
+###200
+PUT http://localhost:8080/api/tournaments/1/rosters/3
+
+###200
+PUT http://localhost:8080/api/tournaments/2/rosters/3
+
+###200
+GET http://localhost:8080/api/rosters/3/players/
+
+###200
+GET http://localhost:8080/api/rosters/3/tournaments/
+
+###200
+DELETE http://localhost:8080/api/players/6
+
+###

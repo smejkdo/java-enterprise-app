@@ -1,0 +1,50 @@
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Potato",
+  "firstName":"Pepaa",
+  "lastName":"Novakova"
+}
+
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Brambora",
+  "firstName":"Pepa",
+  "lastName":"Novak"
+}
+
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Ja",
+  "firstName":"nePepa",
+  "lastName":"neNovak"
+}
+
+###204
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Nickname",
+  "firstName":"Jan",
+  "lastName":"Novotny"
+}
+
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Hrac",
+  "firstName":"Klaun",
+  "lastName":"Kral"
+}
+
+###201

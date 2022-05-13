@@ -1,0 +1,55 @@
+GET http://localhost:8080/api/rosters
+
+###200
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"SK"
+}
+
+###201
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"Potatos"
+}
+
+###201
+PUT http://localhost:8080/api/rosters/2
+Content-Type: application/json
+
+{
+  "name":"Brambory"
+}
+
+###204
+PUT http://localhost:8080/api/rosters/3
+Content-Type: application/json
+
+{
+  "name":"C9"
+}
+
+###204
+GET http://localhost:8080/api/rosters
+
+###200
+PUT http://localhost:8080/api/rosters/5
+Content-Type: application/json
+
+{
+  "name":"F5"
+}
+
+###204
+GET http://localhost:8080/api/rosters/4
+
+###200/404
+DELETE http://localhost:8080/api/rosters/3
+
+###204/404
+GET http://localhost:8080/api/rosters
+
+###200

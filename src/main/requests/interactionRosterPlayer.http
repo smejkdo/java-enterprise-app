@@ -1,0 +1,44 @@
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"Potatos"
+}
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+"nickname":"Potato",
+"firstName":"Pepaa",
+"lastName":"Novakova"
+}
+
+###201
+GET http://localhost:8080/api/rosters
+
+###200
+GET http://localhost:8080/api/players
+
+###200
+PUT http://localhost:8080/api/players/2/1
+
+###204
+GET http://localhost:8080/api/rosters/1/players/
+
+###200
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Brambora",
+  "firstName":"Pepa",
+  "lastName":"Novak"
+}
+###201
+PUT http://localhost:8080/api/rosters/1/players/3
+
+###204
+DELETE http://localhost:8080/api/rosters/1/players/2
+
+###204

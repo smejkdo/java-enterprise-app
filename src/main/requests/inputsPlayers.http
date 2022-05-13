@@ -1,0 +1,75 @@
+GET http://localhost:8080/api/players
+###
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+"nickname":"Potato",
+"firstName":"Pepaa",
+"lastName":"Novakova"
+}
+
+###201
+
+GET http://localhost:8080/api/players
+
+###200
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Brambora",
+  "firstName":"Pepa",
+  "lastName":"Novak"
+}
+
+###201
+GET http://localhost:8080/api/players/3
+
+###404
+
+PUT http://localhost:8080/api/players/3
+Content-Type: application/json
+
+{
+  "nickname":"Ja",
+  "firstName":"nePepa",
+  "lastName":"neNovak"
+}
+
+###204
+DELETE http://localhost:8080/api/players/2
+
+###204
+PUT http://localhost:8080/api/players/3/4
+
+###204/404
+
+PUT http://localhost:8080/api/players/3
+Content-Type: application/json
+
+{
+  "firstName":"nePepa"
+}
+
+###400
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Nickname",
+  "firstName":"Jan",
+  "lastName":"Novotny"
+}
+
+###201
+POST http://localhost:8080/api/players
+Content-Type: application/json
+
+{
+  "nickname":"Hrac",
+  "firstName":"Klaun",
+  "lastName":"Kral"
+}
+
+###

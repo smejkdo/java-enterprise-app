@@ -1,0 +1,32 @@
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"SK"
+}
+
+###201
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"Potatos"
+}
+
+###201
+PUT http://localhost:8080/api/rosters/3
+Content-Type: application/json
+
+{
+  "name":"C9"
+}
+
+###204
+POST http://localhost:8080/api/rosters
+Content-Type: application/json
+
+{
+  "name":"F5"
+}
+
+###204

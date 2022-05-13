@@ -1,0 +1,177 @@
+= RESTful Visited Places API Guide
+Andy Wilkinson and Ondřej Guth;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:operation-curl-request-title: Example request
+:operation-http-response-title: Example response
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+RESTful Visited Places tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource or create a new one.
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[overview-hypermedia]]
+== Hypermedia
+
+RESTful Notes uses hypermedia and resources include links to other resources in their responses.
+Responses are in https://github.com/mikekelly/hal_specification[Hypertext
+Application Language (HAL)] format.
+Links can be found beneath the `_links` key.
+Users of the API should not create URIs themselves, instead they should use the above-described links to navigate from resource to resource.
+
+[[resources]]
+= Resources
+
+[[resources-places]]
+== Places
+
+The Places resources is used to create and list places
+
+[[resources-places-list]]
+=== Listing places
+
+A `GET` request will list all of the service's notes.
+
+operation::b-places-non-empty-index[snippets='http-request']
+
+[[resources-places-retrieve]]
+=== Retrieve a place
+
+A `GET` request will retrieve the details of a place
+
+operation::b-places-read-one[snippets='path-parameters,http-request,http-response,links']
+
+[[resources-places-create]]
+=== Creating a place
+
+A `POST` request is used to create a place.
+
+operation::a-places-post-new[snippets='request-fields,http-request,http-response,response-headers,links']
+
+[[resources-places-update]]
+=== Updating a place
+
+A `PUT` request is used to update a place.
+
+operation::d-places-put-existing[snippets='http-request,http-response']
+
+[[resources-places-delete]]
+=== Deleting a place
+
+A `DELETE` request is used to delete a place.
+
+operation::e-places-delete-existing[snippets='path-parameters,http-request,http-response']
+
+[[resources-characters]]
+== Characters
+
+The Character resources is used to create and list characters
+
+[[resources-characters-list]]
+=== Listing characters
+
+A `GET` request will list all of the service's characters.
+
+operation::b-characters-non-empty-index[snippets='http-request']
+
+[[resources-characters-retrieve]]
+=== Retrieve a character
+
+A `GET` request will retrieve the details of a character
+
+operation::b-characters-read-one[snippets='path-parameters,http-request,http-response,links']
+
+[[resources-characters-create]]
+=== Creating a character
+
+A `POST` request is used to create a character.
+
+operation::a-characters-post-new[snippets='request-fields,http-request,http-response,response-headers,links']
+
+[[resources-characters-update]]
+=== Updating a character
+
+A `PUT` request is used to update a character.
+
+operation::d-characters-put-existing[snippets='http-request,http-response']
+
+[[resources-characters-delete]]
+=== Deleting a character
+
+A `DELETE` request is used to delete a character.
+
+operation::e-characters-delete-existing[snippets='path-parameters,http-request,http-response']
+
+[[resources-visited-places]]
+== Visited Places
+
+The visited places sub-resource of a character is used to retrieve, update, and delete list of visited places of a particular character.
+
+[[resources-visited-list]]
+=== Listing visited places
+
+A `GET` request will list all of the character's visited places.
+
+operation::g-characters-visited-places-non-empty-index[snippets='path-parameters,http-request']
+
+[[resources-visited-update]]
+=== Add a visited place
+
+A `PUT` request is used to add a place to a character's list of visited places.
+
+operation::f-characters-put-visited-place[snippets='path-parameters,http-request,http-response']
+
+[[resources-visited-delete]]
+=== Deleting a visited place from a list
+
+A `DELETE` request is used to remove a place from a character's list.
+
+operation::h-characters-delete-existing-visited-place[snippets='path-parameters,http-request,http-response']
